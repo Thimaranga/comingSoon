@@ -26,21 +26,24 @@
           z-index: 1000;
       }
 
-      /* Debug: Add border to see logo container */
+      /* Logo container styling */
       .mil-logo {
-          border: 2px solid red !important;
-          min-height: 50px;
-          min-width: 50px;
-          background: rgba(255, 255, 255, 0.1) !important;
+          position: relative;
+          z-index: 1000;
+          padding: 10px;
+          background: rgba(255, 255, 255, 0.95);
+          border-radius: 8px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          margin: 20px;
+          display: inline-block;
       }
 
       /* Ensure logo image loads properly */
       .mil-logo img {
           max-width: 100%;
           height: auto;
-          min-width: 50px;
-          min-height: 50px;
-          border: 2px solid blue !important;
+          display: block;
+          object-fit: contain;
       }
 
       /* Add fallback text if image fails to load */
@@ -92,14 +95,22 @@
               font-size: 1.5rem !important;
           }
           
-          /* Frame adjustments */
-          .mil-frame-top {
-              padding: 15px 20px !important;
-          }
-          
-          .mil-frame-bottom {
-              padding: 15px 20px !important;
-          }
+                /* Frame adjustments */
+      .mil-frame-top {
+          padding: 15px 20px !important;
+          position: relative;
+          z-index: 999;
+      }
+      
+      .mil-frame-bottom {
+          padding: 15px 20px !important;
+      }
+      
+      /* Ensure frame doesn't overlap content */
+      .mil-frame {
+          position: relative;
+          z-index: 998;
+      }
           
           /* Menu content responsive */
           .mil-menu-content {
@@ -192,12 +203,17 @@
             visibility: visible !important;
         }
 
-        /* Mobile logo adjustments */
-        @media (max-width: 767px) {
-            .mil-logo img {
-                width: 35px !important;
-                height: 35px !important;
-            }
+              /* Mobile logo adjustments */
+      @media (max-width: 767px) {
+          .mil-logo {
+              margin: 15px;
+              padding: 8px;
+          }
+          
+          .mil-logo img {
+              width: 120px !important;
+              height: auto !important;
+          }
         }
           
           /* Menu adjustments for very small screens */
@@ -484,7 +500,9 @@
       <!-- frame -->
     <div class="mil-frame">
         <div class="mil-frame-top">
-            <img src="logo-black.png" alt="devETERN Logo" width="200" height="120">
+            <!-- <div class="mil-logo"> -->
+                <img src="logo-black.png" alt="devETERN Logo" width="100" height="60">
+            <!-- </div> -->
         </div>
         <div class="mil-menu-btn">
             <span></span>
